@@ -1,0 +1,34 @@
+/*����ͨ����ʽ*/
+body{
+    font:12px "Microsoft YaHei", 'Helvetica Neue', Helvetica, Arial, Verdana;;
+    color:#000;
+    background-color:#fff;
+    margin:0;
+    padding:0;
+    box-sizing: border-box;
+}
+p,h1,h2,h3,h4,h5,h6,ul,ol,dl,dd{
+    margin:0;
+    padding:0;
+    list-style:none;
+}
+a{text-decoration:none; color:#888;}
+a.hover{background-color:#39a1db;}
+img{vertical-align:bottom}
+/*消除浮动影响父元素高度问题*/
+.clear:after{
+    content:"";
+    display:block;
+    clear:both;
+}
+.lf{float:left}
+.rf{float:right}
+div.main{
+    width:1190px;
+    margin:0 auto;
+}
+/*外边距的溢出问题*/
+.keepHeight:before{
+    content:'';
+    display:table;
+}

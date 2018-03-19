@@ -1,0 +1,14 @@
+<?xml version='1.0' encoding='euc-kr'?>
+<contentsRotator>
+<item order='1' category='E' type='image' title='00000000' image='zsimg/01.gif' source='http://www.baidu.com' target='_self' />
+<item order='2' category='E' type='image' title='111111111' image='zsimg/01.gif' source='http://www.baidu.com' target='_self' />
+<item order='3' category='E' type='image' title='22222222' image='zsimg/01.gif' source='http://www.baidu.com' target='' />
+<item order='4' category='E' type='image' title='333333333' image='zsimg/01.gif' source='http://www.baidu.com' target='_self' />
+<item order='5' category='E' type='image' title='4444444' image='zsimg/01.gif' source='http://www.baidu.com' />
+<item order='6' category='S' type='image' title='5555555' image='zsimg/01.gif' source='http://www.baidu.com' target='' />
+<item order='7' category='S' type='video' title='666666666' image='zsimg/01.gif' source='http://www.baidu.com' />
+<item order='8' category='S' type='video' title='7777777777' image='zsimg/01.gif' source='http://www.baidu.com' />
+<item order='9' category='B' type='image' title='8888888888' image='zsimg/01.gif' source='http://www.baidu.com' target='' />
+<item order='10' category='B' type='image' title='99999999' image='zsimg/01.gif' source='http://www.baidu.com' target='' />
+<item order='11' category='B' type='image' title='10101010' image='zsimg/01.gif' source='http://www.baidu.com' target='' />
+</contentsRotator>

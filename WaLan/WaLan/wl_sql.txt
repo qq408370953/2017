@@ -1,0 +1,457 @@
+/*创建用户表******************************************************************************************************/
+drop database if exists wl;
+create database wl charset=utf8;
+use wl;
+create table wl_user(
+	uid int primary key auto_increment,
+	uphone varchar(20),
+	uemail varchar(32),
+	upwd varchar(20)
+);
+/*插入信息*/
+
+/**********************************首页---创建秀场直击表**********************************************************/
+create table show_pic(
+	sid int primary key auto_increment,
+	sdate varchar(5),
+	stitle varchar(22),
+	spic varchar(128),
+	shref varchar(128)
+);
+/*秀场直击---插入信息*/
+insert into show_pic values
+(null,"09.08","Club Monaco","img/01_index/hot1.jpg","javascript:;"),
+(null,"09.08","Whistles","img/01_index/hot2.jpg","javascript:;"),
+(null,"09.08","Tomas Maier","img/01_index/hot3.jpg","javascript:;"),
+(null,"09.08","Monique Lhuillier","img/01_index/hot4.jpg","javascript:;"),
+(null,"09.08","Kith Sport","img/01_index/hot5.jpg","javascript:;"),
+(null,"09.07","CFDA","img/01_index/hot6.jpg","javascript:;"),
+(null,"09.06","R13","img/01_index/hot7.jpg","javascript:;"),
+(null,"07.13","Ovadia and Sons","img/01_index/hot8.jpg","javascript:;"),
+(null,"07.13","Palmiers du Mal","img/01_index/hot9.jpg","javascript:;"),
+(null,"07.13","Jahnkoy","img/01_index/hot10.jpg","javascript:;"),
+(null,"07.13","Bode","img/01_index/hot11.jpg","javascript:;"),
+(null,"07.12","Landlord","img/01_index/hot12.jpg","javascript:;"),
+(null,"07.12","You As","img/01_index/hot13.jpg","javascript:;"),
+(null,"07.12","Parke and Ronen","img/01_index/hot14.jpg","javascript:;"),
+(null,"07.11","Maiden Noir","img/01_index/hot15.jpg","javascript:;"),
+(null,"07.11","Maison Anggy Haif","img/01_index/hot16.jpg","javascript:;"),
+(null,"07.11","Descendant of T...","img/01_index/hot17.jpg","javascript:;"),
+(null,"07.10","Who Is On Next","img/01_index/hot18.jpg","javascript:;"),
+(null,"07.10","World of Fashion","img/01_index/hot19.jpg","javascript:;"),
+(null,"07.10","Soocha","img/01_index/hot20.jpg","javascript:;"),
+(null,"07.07","moi Multiple","img/01_index/hot21.jpg","javascript:;"),
+(null,"07.07","Morfosis","img/01_index/hot22.jpg","javascript:;"),
+(null,"07.06","Andrew Gn","img/01_index/hot23.jpg","javascript:;"),
+(null,"07.05","Miu Miu","img/01_index/hot24.jpg","javascript:;"),
+(null,"07.05","Giambattista Valli","img/01_index/hot25.jpg","javascript:;"),
+(null,"07.05","Franck Sorbier","img/01_index/hot26.jpg","javascript:;"),
+(null,"07.05","Fendi","img/01_index/hot27.jpg","javascript:;"),
+(null,"07.05","Balmain","img/01_index/hot28.jpg","javascript:;"),
+(null,"07.04","Yumi Katsura","img/01_index/hot29.jpg","javascript:;"),
+(null,"07.03","Ronald Van Der ...","img/01_index/hot30.jpg","javascript:;"),
+(null,"07.03","Rodarte","img/01_index/hot31.jpg","javascript:;"),
+(null,"07.03","Proenza Schouler","img/01_index/hot32.jpg","javascript:;"),
+(null,"07.03","Eva Minge","img/01_index/hot33.jpg","javascript:;"),
+(null,"06.30","Chalayan","img/01_index/hot34.jpg","javascript:;"),
+(null,"06.30","Isa Arfen","img/01_index/hot35.jpg","javascript:;"),
+(null,"06.29","Jill Stuart","img/01_index/hot36.jpg","javascript:;");
+/*********************************创建品类（总的类型）表************************************************/
+create table wl_family(
+	fid int primary key auto_increment,
+	fname varchar(4)
+);
+/***************************************总品类表插值**************************/
+insert into wl_family values
+(null,'服装'),
+(null,'家纺'),
+(null,'配饰');
+/************************************创建服装分类表*****************************************************/
+create table fz_family(
+	fzId int primary key auto_increment,
+	fzName varchar(4) 
+);
+/******************************服装分类表插入信息*********************************************************/
+insert into fz_family values
+(null,"女装"),
+(null,"男装"),
+(null,"童装"),
+(null,"泳装");
+
+
+/*创建顶部轮播图表  addr为轮播方位，顶部轮播为1 ，下面floor2的轮播为2**********/
+create table wl_carousel(
+	cid int primary key auto_increment,
+	f_id int,
+	fz_id int,
+	addr int,
+	src varchar(128),
+	href varchar(128)
+);
+/*给顶部轮播图表插入数据*/
+insert into wl_carousel values
+(null,1,1,1,"img/01_index/banner1-1.jpg","javascript:;"),
+(null,1,1,1,"img/01_index/banner1-2.jpg","javascript:;"),
+(null,1,1,1,"img/01_index/banner1-3.jpg","javascript:;"),
+(null,1,1,1,"img/01_index/banner1-4.jpg","javascript:;");
+/*楼层1和楼层二的图片*/
+create table wl_floor(
+	fid int primary key auto_increment,
+	src varchar(128),
+	href varchar(128),
+	sort varchar(16)       /*属于哪个楼层的那组 ，floor1以s开头，floor2以i开头*/
+);
+insert into wl_floor values
+(null,'img/01_index/f1-1.jpg','','s1'),
+(null,'img/01_index/f1-2.jpg','','s1'),
+(null,'img/01_index/f1-3.jpg','','s1'),
+(null,'img/01_index/f1-4.jpg','','s1'),
+(null,'img/01_index/f1-5.jpg','','s1'),
+(null,'img/01_index/f1-6.jpg','','s1'),
+(null,'img/01_index/f1-7.jpg','','s1'),
+(null,'img/01_index/f1-8.jpg','','s1'),
+(null,'img/01_index/f1-9.jpg','','s1'),
+(null,'img/01_index/f1-10.jpg','','s1'),
+(null,'img/01_index/f2-1.jpg','','s2'),
+(null,'img/01_index/f3-1.jpg','','s3'),
+(null,'img/01_index/f3-2.jpg','','s3'),
+(null,'img/01_index/f3-3.jpg','','s3'),
+(null,'img/01_index/f3-4.jpg','','s3'),
+(null,'img/01_index/f3-5.jpg','','s3'),
+(null,'img/01_index/f3-6.jpg','','s3'),
+(null,'img/01_index/f3-7.jpg','','s3'),
+(null,'img/01_index/f3-8.jpg','','s3'),
+(null,'img/01_index/f3-9.jpg','','s3'),
+(null,'img/01_index/f3-10.jpg','','s3'),
+(null,'img/01_index/f4-1.jpg','','s4'),
+(null,'img/01_index/f4-2.jpg','','s4'),
+(null,'img/01_index/f4-3.jpg','','s4'),
+(null,'img/01_index/f4-4.jpg','','s4'),
+(null,'img/01_index/f4-5.jpg','','s4'),
+(null,'img/01_index/f4-6.jpg','','s4'),
+(null,'img/01_index/f4-7.jpg','','s4'),
+(null,'img/01_index/f4-8.jpg','','s4'),
+(null,'img/01_index/f4-9.jpg','','s4'),
+(null,'img/01_index/f4-10.jpg','','s4'),
+(null,'img/01_index/f5-1.jpg','','s5'),
+(null,'img/01_index/f5-2.jpg','','s5'),
+(null,'img/01_index/f5-3.jpg','','s5'),
+(null,'img/01_index/f5-4.jpg','','s5'),
+(null,'img/01_index/f5-5.jpg','','s5'),
+(null,'img/01_index/f5-6.jpg','','s5'),
+(null,'img/01_index/f5-7.jpg','','s5'),
+(null,'img/01_index/f5-8.jpg','','s5'),
+(null,'img/01_index/f5-9.jpg','','s5'),
+(null,'img/01_index/f5-10.jpg','','s5'),
+(null,'img/01_index/imgs1-1.jpg','','i1'),
+(null,'img/01_index/imgs1-2.jpg','','i1'),
+(null,'img/01_index/imgs1-3.jpg','','i1'),
+(null,'img/01_index/imgs1-4.jpg','','i1'),
+(null,'img/01_index/imgs1-5.jpg','','i1'),
+(null,'img/01_index/imgs2-1.jpg','','i2'),
+(null,'img/01_index/imgs2-2.jpg','','i2'),
+(null,'img/01_index/imgs2-3.jpg','','i2'),
+(null,'img/01_index/imgs2-4.jpg','','i2'),
+(null,'img/01_index/imgs2-5.jpg','','i2');
+/*****************************************趋势印花---时尚资讯列表图***********************************************************/
+create table wl_fashionNews(
+	fid int primary key auto_increment,
+	img varchar(128),
+	href varchar(128),
+	title varchar(64),
+	msg varchar(128)
+);
+insert into wl_fashionNews values
+(null,'1.jpg',"javascript:;","男神拯救计划-按这样的搭配拯救他",
+"2018男装周已经完美落幕了，这届男装周有很多看点和许多迷思。时尚圈最不缺的当然是人高腿高颜的性感模特，但他们身材太完美以至于没有参考性，当你照着秀..."),
+(null,'2.png',"javascript:;","万年热搜的DOLCE&GABBANA这次“作”出了一个成人礼",
+"康忙北鼻，DOLCE &amp; GABBANA 2018春夏男装秀来啦 有‘毒’的灵感 王俊凯童鞋刚高考完，就参加Dol..."),
+(null,'3.png',"javascript:;","混乱的换季期，什么单品能让你脱引而出？",
+""),
+(null,'4.jpg',"javascript:;","带着拉斯科壁画与狼群，Dior带你走进迷幻西部",
+"Dior在美国圣莫妮卡上拉斯维占斯峡谷露天保护区举办了2018年早春度假系列的时装秀。本次大秀是 Maria Grazia Chiuri 入驻 Di..."),
+(null,'5.jpg',"javascript:;","2018春夏女装图案流行趋势",
+""),
+(null,'6.jpg',"javascript:;","2018春夏男装流行趋势",
+""),
+(null,'7.jpg',"javascript:;","2018春夏家纺图案流行趋势",
+""),
+(null,'8.jpg',"javascript:;","欢迎来到北欧童话世界，2017Rebell Walls壁纸",
+"每次装修最头疼的事情便是选壁纸，因为这关乎整个家的视觉形象，选好了夺人眼球，立即彰显艺术品位。这次Rebell Walls推出了好几个系列设计，..."),
+(null,'9.png',"javascript:;","2017秋冬男装时尚周之最具看点之各种抱大腿",
+"从1月6日开始相继在伦敦，米兰，巴黎，纽约展开2017四大男装时装周在2月2日纽约拉下了帷幕。不论是走经典路线的米兰或是素来代表高级时装力量的巴..."),
+(null,'10.jpg',"javascript:;","来自于大自然的设计源泉 | Keiko Nichiyama的",
+"伦敦设计师应该是让数码印花走向世界的舞台的一个魁首。Keiko毕业于伦敦艺术大学，但是她却以另一个角度去发挥这个极具现代感的艺术。一花一..."),
+(null,'11.jpg',"javascript:;","“歪果仁”超喜欢把汉字穿在身上，轮到他们",
+"前几年，我们苦心孤诣的学习欧美穿搭，研究他们高深造诣的搭配技巧，但是，这几年中国风的崛起让只认得汉堡面包的&ldquo;歪果仁&rdquo;感..."),
+(null,'12.jpg',"javascript:;","当“手工感”与“粉蜡色”碰到一起",
+"在小城镇，走街串巷寻找一家美丽的花店实在不容易，本来是为了一束满天星，却一眼被另一种花吸引住了，老板娘说它叫澳梅，你知道澳梅吗？ 澳梅又被..."),
+(null,'13.jpg',"javascript:;","必看！少女心MiuMiu领衔2017春夏泳池潮流",
+"在永不停歇时尚界有道是&ldquo;秋冬来了，春夏还会远吗！&rdquo;，2016年的秋天大家关注了哪些大牌2017年春夏时装发布会？ ..."),
+(null,'14.jpg',"javascript:;","趋势 | 2017春夏女装流行什么印花？",
+"黑莓色 当客户向你提问：接下来流行的印花是什么呢？&rdquo;这时候千万别一脸懵逼..."),
+(null,'15.jpg',"javascript:;","曾经你最嫌弃的校服裤，居然成为火爆全球的街拍",
+"如果你说你喜欢穿学校的校服，那我相信未来的时尚圈一定有你的身影。 最近时尚圈刮起了一阵妖风，当年被你嫌弃的校服裤，如今却成了最chic的单..."),
+(null,'1.jpg',"javascript:;","男神拯救计划-按这样的搭配拯救他",
+"2018男装周已经完美落幕了，这届男装周有很多看点和许多迷思。时尚圈最不缺的当然是人高腿高颜的性感模特，但他们身材太完美以至于没有参考性，当你照着秀..."),
+(null,'2.png',"javascript:;","万年热搜的DOLCE&GABBANA这次“作”出了一个成人礼",
+"康忙北鼻，DOLCE &amp; GABBANA 2018春夏男装秀来啦 有‘毒’的灵感 王俊凯童鞋刚高考完，就参加Dol..."),
+(null,'3.png',"javascript:;","混乱的换季期，什么单品能让你脱引而出？",
+""),
+(null,'4.jpg',"javascript:;","带着拉斯科壁画与狼群，Dior带你走进迷幻西部",
+"Dior在美国圣莫妮卡上拉斯维占斯峡谷露天保护区举办了2018年早春度假系列的时装秀。本次大秀是 Maria Grazia Chiuri 入驻 Di..."),
+(null,'5.jpg',"javascript:;","2018春夏女装图案流行趋势",
+""),
+(null,'6.jpg',"javascript:;","2018春夏男装流行趋势",
+""),
+(null,'7.jpg',"javascript:;","2018春夏家纺图案流行趋势",
+""),
+(null,'8.jpg',"javascript:;","欢迎来到北欧童话世界，2017Rebell Walls壁纸",
+"每次装修最头疼的事情便是选壁纸，因为这关乎整个家的视觉形象，选好了夺人眼球，立即彰显艺术品位。这次Rebell Walls推出了好几个系列设计，..."),
+(null,'9.png',"javascript:;","2017秋冬男装时尚周之最具看点之各种抱大腿",
+"从1月6日开始相继在伦敦，米兰，巴黎，纽约展开2017四大男装时装周在2月2日纽约拉下了帷幕。不论是走经典路线的米兰或是素来代表高级时装力量的巴..."),
+(null,'10.jpg',"javascript:;","来自于大自然的设计源泉 | Keiko Nichiyama的",
+"伦敦设计师应该是让数码印花走向世界的舞台的一个魁首。Keiko毕业于伦敦艺术大学，但是她却以另一个角度去发挥这个极具现代感的艺术。一花一..."),
+(null,'11.jpg',"javascript:;","“歪果仁”超喜欢把汉字穿在身上，轮到他们",
+"前几年，我们苦心孤诣的学习欧美穿搭，研究他们高深造诣的搭配技巧，但是，这几年中国风的崛起让只认得汉堡面包的&ldquo;歪果仁&rdquo;感..."),
+(null,'12.jpg',"javascript:;","当“手工感”与“粉蜡色”碰到一起",
+"在小城镇，走街串巷寻找一家美丽的花店实在不容易，本来是为了一束满天星，却一眼被另一种花吸引住了，老板娘说它叫澳梅，你知道澳梅吗？ 澳梅又被..."),
+(null,'13.jpg',"javascript:;","必看！少女心MiuMiu领衔2017春夏泳池潮流",
+"在永不停歇时尚界有道是&ldquo;秋冬来了，春夏还会远吗！&rdquo;，2016年的秋天大家关注了哪些大牌2017年春夏时装发布会？ ..."),
+(null,'14.jpg',"javascript:;","趋势 | 2017春夏女装流行什么印花？",
+"黑莓色 当客户向你提问：接下来流行的印花是什么呢？&rdquo;这时候千万别一脸懵逼..."),
+(null,'15.jpg',"javascript:;","曾经你最嫌弃的校服裤，居然成为火爆全球的街拍",
+"如果你说你喜欢穿学校的校服，那我相信未来的时尚圈一定有你的身影。 最近时尚圈刮起了一阵妖风，当年被你嫌弃的校服裤，如今却成了最chic的单..."),
+(null,'1.jpg',"javascript:;","男神拯救计划-按这样的搭配拯救他",
+"2018男装周已经完美落幕了，这届男装周有很多看点和许多迷思。时尚圈最不缺的当然是人高腿高颜的性感模特，但他们身材太完美以至于没有参考性，当你照着秀..."),
+(null,'2.png',"javascript:;","万年热搜的DOLCE&GABBANA这次“作”出了一个成人礼",
+"康忙北鼻，DOLCE &amp; GABBANA 2018春夏男装秀来啦 有‘毒’的灵感 王俊凯童鞋刚高考完，就参加Dol..."),
+(null,'3.png',"javascript:;","混乱的换季期，什么单品能让你脱引而出？",
+""),
+(null,'4.jpg',"javascript:;","带着拉斯科壁画与狼群，Dior带你走进迷幻西部",
+"Dior在美国圣莫妮卡上拉斯维占斯峡谷露天保护区举办了2018年早春度假系列的时装秀。本次大秀是 Maria Grazia Chiuri 入驻 Di..."),
+(null,'5.jpg',"javascript:;","2018春夏女装图案流行趋势",
+""),
+(null,'6.jpg',"javascript:;","2018春夏男装流行趋势",
+""),
+(null,'7.jpg',"javascript:;","2018春夏家纺图案流行趋势",
+""),
+(null,'8.jpg',"javascript:;","欢迎来到北欧童话世界，2017Rebell Walls壁纸",
+"每次装修最头疼的事情便是选壁纸，因为这关乎整个家的视觉形象，选好了夺人眼球，立即彰显艺术品位。这次Rebell Walls推出了好几个系列设计，..."),
+(null,'9.png',"javascript:;","2017秋冬男装时尚周之最具看点之各种抱大腿",
+"从1月6日开始相继在伦敦，米兰，巴黎，纽约展开2017四大男装时装周在2月2日纽约拉下了帷幕。不论是走经典路线的米兰或是素来代表高级时装力量的巴..."),
+(null,'10.jpg',"javascript:;","来自于大自然的设计源泉 | Keiko Nichiyama的",
+"伦敦设计师应该是让数码印花走向世界的舞台的一个魁首。Keiko毕业于伦敦艺术大学，但是她却以另一个角度去发挥这个极具现代感的艺术。一花一..."),
+(null,'11.jpg',"javascript:;","“歪果仁”超喜欢把汉字穿在身上，轮到他们",
+"前几年，我们苦心孤诣的学习欧美穿搭，研究他们高深造诣的搭配技巧，但是，这几年中国风的崛起让只认得汉堡面包的&ldquo;歪果仁&rdquo;感..."),
+(null,'12.jpg',"javascript:;","当“手工感”与“粉蜡色”碰到一起",
+"在小城镇，走街串巷寻找一家美丽的花店实在不容易，本来是为了一束满天星，却一眼被另一种花吸引住了，老板娘说它叫澳梅，你知道澳梅吗？ 澳梅又被..."),
+(null,'13.jpg',"javascript:;","必看！少女心MiuMiu领衔2017春夏泳池潮流",
+"在永不停歇时尚界有道是&ldquo;秋冬来了，春夏还会远吗！&rdquo;，2016年的秋天大家关注了哪些大牌2017年春夏时装发布会？ ..."),
+(null,'14.jpg',"javascript:;","趋势 | 2017春夏女装流行什么印花？",
+"黑莓色 当客户向你提问：接下来流行的印花是什么呢？&rdquo;这时候千万别一脸懵逼..."),
+(null,'15.jpg',"javascript:;","曾经你最嫌弃的校服裤，居然成为火爆全球的街拍",
+"如果你说你喜欢穿学校的校服，那我相信未来的时尚圈一定有你的身影。 最近时尚圈刮起了一阵妖风，当年被你嫌弃的校服裤，如今却成了最chic的单..."),
+(null,'1.jpg',"javascript:;","男神拯救计划-按这样的搭配拯救他",
+"2018男装周已经完美落幕了，这届男装周有很多看点和许多迷思。时尚圈最不缺的当然是人高腿高颜的性感模特，但他们身材太完美以至于没有参考性，当你照着秀..."),
+(null,'2.png',"javascript:;","万年热搜的DOLCE&GABBANA这次“作”出了一个成人礼",
+"康忙北鼻，DOLCE &amp; GABBANA 2018春夏男装秀来啦 有‘毒’的灵感 王俊凯童鞋刚高考完，就参加Dol..."),
+(null,'3.png',"javascript:;","混乱的换季期，什么单品能让你脱引而出？",
+""),
+(null,'4.jpg',"javascript:;","带着拉斯科壁画与狼群，Dior带你走进迷幻西部",
+"Dior在美国圣莫妮卡上拉斯维占斯峡谷露天保护区举办了2018年早春度假系列的时装秀。本次大秀是 Maria Grazia Chiuri 入驻 Di..."),
+(null,'5.jpg',"javascript:;","2018春夏女装图案流行趋势",
+""),
+(null,'6.jpg',"javascript:;","2018春夏男装流行趋势",
+""),
+(null,'7.jpg',"javascript:;","2018春夏家纺图案流行趋势",
+""),
+(null,'8.jpg',"javascript:;","欢迎来到北欧童话世界，2017Rebell Walls壁纸",
+"每次装修最头疼的事情便是选壁纸，因为这关乎整个家的视觉形象，选好了夺人眼球，立即彰显艺术品位。这次Rebell Walls推出了好几个系列设计，..."),
+(null,'9.png',"javascript:;","2017秋冬男装时尚周之最具看点之各种抱大腿",
+"从1月6日开始相继在伦敦，米兰，巴黎，纽约展开2017四大男装时装周在2月2日纽约拉下了帷幕。不论是走经典路线的米兰或是素来代表高级时装力量的巴..."),
+(null,'10.jpg',"javascript:;","来自于大自然的设计源泉 | Keiko Nichiyama的",
+"伦敦设计师应该是让数码印花走向世界的舞台的一个魁首。Keiko毕业于伦敦艺术大学，但是她却以另一个角度去发挥这个极具现代感的艺术。一花一..."),
+(null,'11.jpg',"javascript:;","“歪果仁”超喜欢把汉字穿在身上，轮到他们",
+"前几年，我们苦心孤诣的学习欧美穿搭，研究他们高深造诣的搭配技巧，但是，这几年中国风的崛起让只认得汉堡面包的&ldquo;歪果仁&rdquo;感..."),
+(null,'12.jpg',"javascript:;","当“手工感”与“粉蜡色”碰到一起",
+"在小城镇，走街串巷寻找一家美丽的花店实在不容易，本来是为了一束满天星，却一眼被另一种花吸引住了，老板娘说它叫澳梅，你知道澳梅吗？ 澳梅又被..."),
+(null,'13.jpg',"javascript:;","必看！少女心MiuMiu领衔2017春夏泳池潮流",
+"在永不停歇时尚界有道是&ldquo;秋冬来了，春夏还会远吗！&rdquo;，2016年的秋天大家关注了哪些大牌2017年春夏时装发布会？ ..."),
+(null,'14.jpg',"javascript:;","趋势 | 2017春夏女装流行什么印花？",
+"黑莓色 当客户向你提问：接下来流行的印花是什么呢？&rdquo;这时候千万别一脸懵逼..."),
+(null,'15.jpg',"javascript:;","曾经你最嫌弃的校服裤，居然成为火爆全球的街拍",
+"如果你说你喜欢穿学校的校服，那我相信未来的时尚圈一定有你的身影。 最近时尚圈刮起了一阵妖风，当年被你嫌弃的校服裤，如今却成了最chic的单...");
+
+
+/******************************************趋势印花---秀场直击***********************************************************/
+/**秀场直击中大图 图片、季节、人群、城市、品牌、类别**/
+create table wl_showlive(
+	sid INT PRIMARY KEY AUTO_INCREMENT,
+	img VARCHAR(128),
+	href VARCHAR(128),
+	season VARCHAR(16),
+	person VARCHAR(16),
+	city VARCHAR(16),
+	bid INT,
+	classes VARCHAR(16)
+);
+INSERT INTO wl_showlive VALUES
+(NULL,'img/03_showlive/1.jpg','','2018秋冬 ','女士','巴黎',1,'爱心'),
+(NULL,'img/03_showlive/2.jpg','','2017秋冬 ','女士','纽约',2,'斑点'),
+(NULL,'img/03_showlive/3.jpg','','2018秋冬 ','女士','伦敦',3,'菠萝'),
+(NULL,'img/03_showlive/4.jpg','','2017秋冬 ','女士','弗洛伦撒',4,'彩虹'),
+(NULL,'img/03_showlive/5.jpg','','2018秋冬 ','女士','米兰',5,'趣味'),
+(NULL,'img/03_showlive/6.jpg','','2018秋冬 ','女士','巴黎',6,'爱心'),
+(NULL,'img/03_showlive/7.jpg','','2017秋冬 ','女士','纽约',2,'斑点'),
+(NULL,'img/03_showlive/8.jpg','','2018秋冬 ','女士','伦敦',8,'菠萝'),
+(NULL,'img/03_showlive/9.jpg','','2017秋冬 ','女士','弗洛伦撒',9,'彩虹'),
+(NULL,'img/03_showlive/10.jpg','','2018秋冬 ','女士','米兰',10,'趣味'),
+(NULL,'img/03_showlive/11.jpg','','2017秋冬 ','女士','米兰',11,'菠萝'),
+(NULL,'img/03_showlive/12.jpg','','2018秋冬 ','女士','巴黎',12,'爱心'),
+(NULL,'img/03_showlive/13.jpg','','2017秋冬 ','女士','纽约',13,'斑点'),
+(NULL,'img/03_showlive/14.jpg','','2018秋冬','女士','伦敦',14,'菠萝'),
+(NULL,'img/03_showlive/15.jpg','','2017秋冬','女士','弗洛伦撒',15,'彩虹'),
+(NULL,'img/03_showlive/16.jpg','','2018秋冬','女士','米兰',16,'趣味'),
+(NULL,'img/03_showlive/17.jpg','','2017秋冬','女士','巴黎',17,'彩虹'),
+(NULL,'img/03_showlive/18.jpg','','2018秋冬','女士','巴黎',18,'爱心'),
+(NULL,'img/03_showlive/19.jpg','','2017秋冬','女士','纽约',19,'斑点'),
+(NULL,'img/03_showlive/20.jpg','','2018秋冬','女士','伦敦',20,'菠萝'),
+(NULL,'img/03_showlive/21.jpg','','2017秋冬','女士','弗洛伦撒',21,'彩虹'),
+(NULL,'img/03_showlive/22.jpg','','2017秋冬','女士','米兰',22,'趣味'),
+(NULL,'img/03_showlive/23.jpg','','2018秋冬','女士','伦敦',23,'菠萝'),
+(NULL,'img/03_showlive/24.jpg','','2017秋冬','女士','弗洛伦撒',23,'彩虹'),
+(NULL,'img/03_showlive/25.jpg','','2018春夏','女士','巴黎',24,'爱心'),
+(NULL,'img/03_showlive/26.jpg','','2017春夏','女士','弗洛伦撒',25,'彩虹'),
+(NULL,'img/03_showlive/27.jpg','','2018春夏','女士','米兰',26,'菠萝'),
+(NULL,'img/03_showlive/28.jpg','','2017春夏','女士','纽约',27,'斑点'),
+(NULL,'img/03_showlive/29.jpg','','2017春夏','女士','纽约',27,'趣味'),
+(NULL,'img/03_showlive/30.jpg','','2018春夏','女士','巴黎',28,'爱心'),
+(NULL,'img/03_showlive/31.jpg','','2017春夏','女士','弗洛伦撒',29,'彩虹'),
+(NULL,'img/03_showlive/32.jpg','','2018春夏','女士','米兰',30,'菠萝'),
+(NULL,'img/03_showlive/33.jpg','','2017春夏','女士','纽约',31,'斑点'),
+(NULL,'img/03_showlive/34.jpg','','2017春夏','女士','伦敦',32,'趣味'),
+(NULL,'img/03_showlive/35.jpg','','2018春夏','女士','巴黎',33,'爱心'),
+(NULL,'img/03_showlive/36.jpg','','2017春夏','女士','弗洛伦撒',34,'彩虹'),
+(NULL,'img/03_showlive/37.jpg','','2018春夏','女士','米兰',35,'菠萝'),
+(NULL,'img/03_showlive/38.jpg','','2017春夏','女士','伦敦',36,'斑点'),
+(NULL,'img/03_showlive/39.jpg','','2017春夏','女士','纽约',37,'趣味'),
+(NULL,'img/03_showlive/40.jpg','','2018春夏','女士','巴黎',38,'爱心'),
+(NULL,'img/03_showlive/41.jpg','','2017春夏','女士','弗洛伦撒',39,'彩虹'),
+(NULL,'img/03_showlive/42.jpg','','2018春夏','女士','米兰',30,'菠萝'),
+(NULL,'img/03_showlive/43.jpg','','2017春夏','女士','纽约',40,'斑点'),
+(NULL,'img/03_showlive/44.jpg','','2017春夏','女士','伦敦',41,'趣味'),
+(NULL,'img/03_showlive/45.jpg','','2018春夏','女士','巴黎',33,'爱心'),
+(NULL,'img/03_showlive/46.jpg','','2017春夏','女士','弗洛伦撒',42,'彩虹'),
+(NULL,'img/03_showlive/47.jpg','','2018春夏','女士','米兰',35,'菠萝'),
+(NULL,'img/03_showlive/48.jpg','','2017春夏','女士','伦敦',36,'斑点'),
+(NULL,'img/03_showlive/49.jpg','','2017春夏','女士','纽约',43,'趣味'),
+(NULL,'img/03_showlive/50.jpg','','2018春夏','女士','巴黎',33,'爱心'),
+(NULL,'img/03_showlive/51.jpg','','2017春夏','女士','弗洛伦撒',42,'彩虹'),
+(NULL,'img/03_showlive/52.jpg','','2018春夏','女士','米兰',43,'菠萝'),
+(NULL,'img/03_showlive/53.jpg','','2017春夏','女士','伦敦',44,'斑点'),
+(NULL,'img/03_showlive/54.jpg','','2017春夏','女士','纽约',43,'趣味');
+
+
+/**秀场直击中小图 品牌 **/
+create table wl_brand(
+	bid INT PRIMARY KEY AUTO_INCREMENT,
+	img VARCHAR(128),
+	brands VARCHAR(16)
+);
+INSERT INTO wl_brand VALUES
+(NULL,'img/03_showlive/b1.jpg','Chloe'),
+(NULL,'img/03_showlive/b2.jpg','Rochas'),
+(NULL,'img/03_showlive/b3.jpg','Neith Nyer'),
+(NULL,'img/03_showlive/b4.jpg','Saint Laurent'),
+(NULL,'img/03_showlive/b5.jpg','Christian Dior'),
+(NULL,'img/03_showlive/b6.jpg','Anrealage'),
+(NULL,'img/03_showlive/b7.jpg','Victoria Tomas'),
+(NULL,'img/03_showlive/b8.jpg','Daizy Shely'),
+(NULL,'img/03_showlive/b9.jpg','Marni'),
+(NULL,'img/03_showlive/b10.jpg','Missoni'),
+(NULL,'img/03_showlive/b11.jpg','Cividini'),
+(NULL,'img/03_showlive/b12.jpg','Vionnet'),
+(NULL,'img/03_showlive/b13.jpg','Aigner'),
+(NULL,'img/03_showlive/b14.jpg','Versace'),
+(NULL,'img/03_showlive/b15.jpg','Prada'),
+(NULL,'img/03_showlive/b16.jpg','Boss Women'),
+(NULL,'img/03_showlive/b17.jpg','Bora Aksu'),
+(NULL,'img/03_showlive/b18.jpg','Etro'),
+(NULL,'img/03_showlive/b19.jpg','Edun'),
+(NULL,'img/03_showlive/b20.jpg','Fendi'),
+(NULL,'img/03_showlive/b21.jpg','Fay'),
+(NULL,'img/03_showlive/b22.jpg','GCDS'),
+(NULL,'img/03_showlive/b23.jpg','Georgine'),
+(NULL,'img/03_showlive/b24.jpg','Gucci'),
+(NULL,'img/03_showlive/b25.jpg','Halpern'),
+(NULL,'img/03_showlive/b26.jpg','Icosae'),
+(NULL,'img/03_showlive/b27.jpg','Jason Wu'),
+(NULL,'img/03_showlive/b28.jpg','KTZ'),
+(NULL,'img/03_showlive/b29.jpg','Lacoste'),
+(NULL,'img/03_showlive/b30.jpg','Louis Vuitton'),
+(NULL,'img/03_showlive/b31.jpg','McQ'),
+(NULL,'img/03_showlive/b32.jpg','Nina Ricci'),
+(NULL,'img/03_showlive/b33.jpg','Osman'),
+(NULL,'img/03_showlive/b34.jpg','Poan'),
+(NULL,'img/03_showlive/b35.jpg','R13'),
+(NULL,'img/03_showlive/b36.jpg','Stampd'),
+(NULL,'img/03_showlive/b37.jpg','Toga'),
+(NULL,'img/03_showlive/b38.jpg','Ujoh'),
+(NULL,'img/03_showlive/b39.jpg','Valentina'),
+(NULL,'img/03_showlive/b40.jpg','Whit'),
+(NULL,'img/03_showlive/b41.jpg','Xu Zhi'),
+(NULL,'img/03_showlive/b42.jpg','Yang Li'),
+(NULL,'img/03_showlive/b43.jpg','YDE'),
+(NULL,'img/03_showlive/b44.jpg','Zac Posen');
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

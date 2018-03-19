@@ -1,0 +1,114 @@
+#header{
+    margin-bottom: 20px;
+}
+#header .top{
+    margin-top: 30px;
+}
+#header a:first-child img{
+    width:150px;
+    height:58px;
+}
+#header .top .right{
+    width:179px;
+    height:39px;
+    font-size:14px;
+}
+#header .top .right li{
+    display: inline-block;
+}
+#header .top .right li a{
+    color:#888;
+}
+#header .top .right li:first-child{
+    margin-right:20px;
+}
+#header .top .right a:hover{
+    text-decoration: underline;
+}
+#header .left .input-box{
+    margin-left: 50px;
+    margin-top: 5px;
+    width:641px;
+    height:34px;
+    border:1px solid #39a1db;
+    border-radius: 4px;
+    box-sizing: border-box;
+    padding:6px 12px;
+}
+#header .left .input-box input{
+    width:576px;
+    height:20px;
+    border:none;
+    outline: none;
+}
+#header .left .input-box span{
+    margin-left: 20px;
+    color:#39a1db;
+}
+#header .left .search a{
+    display: inline-block;
+    width:40px;
+    height:34px;
+    border-radius: 4px;
+    margin-top: 5px;
+    margin-left:10px;
+    text-align: center;
+    line-height: 34px;
+    box-sizing: border-box;
+    background:#39a1db ;
+}
+#header .left .search span{
+    color:#fff;
+}
+#header .left ul{
+    margin-left: 50px;
+    margin-top: 5px;
+}
+#header .left ul li{
+    display: inline-block;
+    margin-right: 5px;
+}
+#header .left ul li a{
+    color:#888;
+}
+
+#header .nav{
+    margin-top: 20px;
+    position: relative;
+}
+#header .nav>ul>li{
+    display: inline-block;
+    font-size: 16px;
+    font-weight: bold;
+}
+#header .nav li a{
+    color:#000;
+}
+#header .nav li:first-child a{
+    margin-right:10px;
+}
+#header .nav li:not(:first-child) a{
+    margin: 0 10px;
+}
+#header .nav li:hover>a,#header .nav li.active>a{
+    color:#39a1db;
+    text-decoration: none;
+}
+#header .nav .show-detail{
+    z-index:100;
+    position: absolute;
+    background: #fff;
+    border: 1px solid rgba(0,0,0,.15);
+    border-radius: 4px;
+    box-shadow: 0 6px 12px rgba(0,0,0,.175);
+    padding:10px;
+    display: none;
+    clear:both;
+}
+#header .nav li:nth-child(5) ul.active,#header .nav li:nth-child(6) ul.active{
+    display: block;
+}
+#header .nav .show-detail a{
+    font-size: 12px;
+    font-weight: normal;
+}

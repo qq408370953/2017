@@ -1,0 +1,104 @@
+<!--<!DOCTYPE html>-->
+<!--<html>-->
+<!--<head lang="en">-->
+    <!--<meta charset="UTF-8">-->
+    <!--<title></title>-->
+    <!--<link rel="stylesheet" href="css/base.css">-->
+    <!--<link rel="stylesheet" href="css/bootstrap.css"/>-->
+    <!--<link rel="stylesheet" href="css/header.css">-->
+<!--</head>-->
+<!--<body>-->
+<!--<div class="main">-->
+    <div id="header">
+        <!--头部上部-->
+        <div class="top clear">
+            <a href="01-index.html">
+                <img class="lf" src="img/01_index/1.png" />
+            </a>
+            <div class="right rf" >
+                <ul>
+                    <li><a href="javascript:;">English</a></li>
+                    <li><a href="04-register.html">注册</a>
+                        <span>|</span>
+                    </li>
+                    <li><a href="05-login.html">登录</a></li>
+                </ul>
+            </div>
+            <div class="left lf">
+                <div class="clear">
+                    <div class="input-box lf" >
+                        <input type="text"/>
+                        <span class="glyphicon glyphicon-search"></span>
+                    </div>
+                    <div class="search lf">
+                        <a href="javascript:;">
+                        <span class="glyphicon glyphicon-camera"></span>
+                        </a>
+                    </div>
+                </div>
+                    <ul class="lf">
+                        <li><a href="javascript:;">大牌风</a></li>
+                        <li><a href="javascript:;">定位花</a></li>
+                        <li><a href="javascript:;">几何</a></li>
+                        <li><a href="javascript:;">数码花型</a></li>
+                        <li><a href="javascript:;">小碎花</a></li>
+                        <li><a href="javascript:;">男装</a></li>
+                        <li><a href="javascript:;">狗</a></li>
+                        <li><a href="javascript:;">花卉</a></li>
+                    </ul>
+            </div>
+        </div>
+        <!--头部下部面包屑-->
+        <div class="nav">
+            <ul>
+                <li><a href="01-index.html">服装</a>
+                    <span>/</span>
+                </li>
+                <li><a href="javascript:;">家纺</a>
+                    <span>/</span>
+                </li>
+                <li><a href="javascript:;">服饰</a>
+                    <span>/</span>
+                </li>
+                <li><a href="07-copyright.html">版权服务</a>
+                    <span>/</span>
+                </li>
+                <li><a href="javascript:;">趋势印花
+                    <span class="glyphicon glyphicon-menu-down"></span>
+                    </a>
+                    <span>/</span>
+                    <ul class="show-detail">
+                        <li><a href="10-fashionNews.html">时尚资讯</a></li>
+                        <li><a href="11-showLive.html">秀场直击</a></li>
+                        <li><a href="javascript:;">杂志订阅</a></li>
+                    </ul>
+                </li>
+                <li><a href="javascript:;">瓦栏学院
+                    <span class="glyphicon glyphicon-menu-down"></span>
+                    </a>
+                    <span>/</span>
+                    <ul class="show-detail">
+                        <li><a href="javascript:;">设计师</a></li>
+                        <li><a href="javascript:;">花型大讲堂</a></li>
+                        <li><a href="javascript:;">花型设计手绘班</a></li>
+                        <li><a href="javascript:;">设计师分享</a></li>
+                        <li><a href="javascript:;">赛事活动</a></li>
+                    </ul>
+                </li>
+                <li><a href="javascript:;">找料</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+<script src="js/jquery-3.2.1.js"></script>
+<script>
+    $("#header .nav li:nth-child(5) .show-detail").parent().hover(function(){
+        $(this).children("ul").toggleClass("active");
+    });
+    $("#header .nav li:nth-child(6) .show-detail").parent().hover(function(){
+        $(this).children("ul").toggleClass("active");
+    });
+</script>
+<!--</body>-->
+<!--</html>-->
